@@ -1,6 +1,6 @@
 # ---- Stage 1: Build ----
-# Use an official Node.js runtime as a parent image
-FROM node:18-alpine AS build
+# Use a standard Node.js image based on Debian
+FROM node:18 AS build
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -18,8 +18,8 @@ COPY . .
 RUN npx prisma generate
 
 # ---- Stage 2: Production ----
-# Use a smaller, more secure base image for the final product
-FROM node:18-alpine
+# Use the same standard, compatible base image
+FROM node:18
 
 WORKDIR /usr/src/app
 
