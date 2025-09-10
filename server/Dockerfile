@@ -37,4 +37,4 @@ COPY --from=build /usr/src/app .
 EXPOSE 3001
 
 # Define the command to run your app
-CMD [ "node", "index.js" ]
+CMD [ "npm", "start" ]
