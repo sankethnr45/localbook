@@ -13,10 +13,7 @@ RUN npm install
 
 # Copy the rest of the application code
 COPY . .
-# --- START OF FIX ---
-# Tell Prisma which engine to use for the Alpine Linux environment
-ENV PRISMA_CLI_BINARY_TARGETS="native,linux-musl-openssl-1.1.x"
-# --- END OF FIX ---
+
 # Generate the Prisma client based on your schema
 RUN npx prisma generate
 
