@@ -12,7 +12,14 @@ const NotificationHandler = () => {
   useEffect(() => {
     // If a user is logged in, establish a socket connection
     if (user && !socketRef.current) {
-      socketRef.current = io('http://localhost:3001');
+      // --- START OF FIX ---
+      // Use the production URL from env vars, but remove the /api part for the socket connection
+      const socketURL = import.meta.env.VITE_API_BASE_URL 
+                        ? import.meta.env.VITE_API_BASE_URL.replace('/api', '') 
+                        : 'http://localhost:3001';
+
+      socketRef.current = io(socketURL);
+      // --- END OF FIX ---
       
       socketRef.current.emit('joinRoom', user.id);
 

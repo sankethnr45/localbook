@@ -86,7 +86,8 @@ router.post('/login', async (req, res) => {
         // 6. Send the token back in a secure, httpOnly cookie
         res.cookie('token', token, {
             httpOnly: true,         // The cookie cannot be accessed by client-side JavaScript
-            secure: process.env.NODE_ENV === 'production', // Only send over HTTPS in production
+            secure: true,
+            sameSite: 'none', // Add this line            // Only send over HTTPS in production
             maxAge: 24 * 60 * 60 * 1000,        // 24 hour in milliseconds
         });
 
@@ -119,7 +120,11 @@ router.get('/profile', protect, (req, res) => {
 
 // Endpoint: POST /api/auth/logout
 router.post('/logout', (req, res) => {
-  res.clearCookie('token'); // Clear the token cookie
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+    });
   res.status(200).json({ message: 'Logged out successfully' });
 });
 
