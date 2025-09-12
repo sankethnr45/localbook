@@ -83,7 +83,7 @@ Clone the repository:
 
 Bash
 
-git clone https://github.com/your-username/localbook.git
+git clone https://github.com/sankethnr45/localbook.git
 cd localbook
 Set up the backend & database:
 
