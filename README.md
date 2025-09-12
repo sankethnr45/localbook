@@ -1,4 +1,5 @@
-LocalBook 📅 - A Full-Stack Service Booking Platform
+LocalBook - A Full-Stack Service Booking Platform
+
 Welcome to LocalBook! This is a complete, full-stack web application I built from the ground up to solve a simple problem: small service providers need a straightforward way to manage their bookings without paying for complex, expensive software. This platform connects customers with local professionals, handling everything from service listings to real-time appointment booking.
 
 ## Live Demos
