@@ -84,7 +84,7 @@ Clone the repository:
 Bash
 
 git clone https://github.com/sankethnr45/localbook.git
-cd localbook
+cd localbook 
 Set up the backend & database:
 
 Bash
